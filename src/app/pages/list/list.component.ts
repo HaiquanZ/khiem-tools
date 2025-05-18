@@ -3,16 +3,36 @@ import { CardComponent } from '../../components/card/card.component';
 import { AntdModule } from '../../components/antd/antd.module';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { ModalComponent } from '../../components/modal/modal.component';
+import { ServicesService } from '../../service/services.service';
+import { Word } from '../../service/word';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list',
-  imports: [CardComponent, AntdModule],
+  imports: [CardComponent, AntdModule, CommonModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
 export class ListComponent {
   modalRefAnt?: NzModalRef;
-  constructor(private modal: NzModalService) {}
+  words: Word[] = [];
+  loading: boolean = true;
+
+  constructor(
+    private modal: NzModalService,
+    private service: ServicesService
+  ) {}
+
+  ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    this.service.getWords().subscribe((data) => {
+      this.words = data;
+      this.loading = false;
+    });
+  }
 
   openModal(e: any) {
     this.modalRefAnt = this.modal.create({
@@ -26,6 +46,7 @@ export class ListComponent {
 
     this.modalRefAnt.afterClose.subscribe((status) => {
       if (status) {
+        this.getData();
       }
     });
   }

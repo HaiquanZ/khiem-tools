@@ -1,11 +1,8 @@
-<div>
+<nz-spin [nzSpinning]="loading" [nzSize]="'large'" nzTip="Loading...">
     <div style="text-align: center; margin: 1rem;">
         <button nz-button nzType="primary" (click)="openModal($event)">Add</button>
     </div>
     <div class="list-container">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+        <app-card *ngFor="let item of words" [data]="item" (notifyParent)="getData()"></app-card>
     </div>
-</div>
+</nz-spin>

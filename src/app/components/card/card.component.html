@@ -1,8 +1,8 @@
 <div style="border: #40A9FF 1px solid;">
-    <nz-card style="width:180px;" [nzBordered]="false" nzTitle="Card title" [nzExtra]="extraTemplate">
-        <p>Card content</p>
+    <nz-card style="width:180px;" [nzBordered]="false" nzTitle="{{data.word}}" [nzExtra]="extraTemplate">
+        <p>{{data.meaning}}</p>
     </nz-card>
 </div>
 <ng-template #extraTemplate>
-    <a>Edit</a>
+    <a (click)="openModal()">Edit</a>
 </ng-template>
