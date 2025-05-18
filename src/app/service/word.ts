@@ -3,3 +3,9 @@ export interface Word {
   word: string;
   meaning: string;
 }
+
+export interface Answer {
+  word: string;
+  correctMeaning: string;
+  choices: string[];
+}
