@@ -1,0 +1,22 @@
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input new words!">
+            <nz-input-group>
+                <label>New word</label>
+                <input type="text" nz-input formControlName="username" placeholder="Username" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input meaning of new word!">
+            <nz-input-group>
+                <label>Meaning</label>
+                <input type="text" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <div nz-row nzJustify="end">
+        <button nz-button class="login-form-button login-form-margin" nzType="primary">Add</button>
+        <button nz-button nzType="primary" style="margin-left: 15px;" nzDanger>Delete</button>
+    </div>
+</form>

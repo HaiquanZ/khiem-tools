@@ -1,0 +1,17 @@
+.footer {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+}
+
+.button-footer {
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+    background-color: #40A9FF;
+    padding: 10px 10px;
+}
